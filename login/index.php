@@ -11,7 +11,6 @@
 
 <body>
     <div class="home">
-
         <div class="navclass">
             <?php
             require_once("../php/nav.php");
@@ -21,7 +20,6 @@
             ?>
         </div>
         <div class="login">
-
             <div class="logarea">
                 <div class="logpic">
                     <div class="logcard">
@@ -59,10 +57,7 @@
                                     }
                                 }
                                 ?>
-
-
                             </h2>
-
                         </div>
                     </div>
                 </div>
