@@ -17,7 +17,7 @@ body {
     padding: 10px;
     height: 100vh;
     padding-left: 30px;
-    border-right: 1px solid white;
+    border-right: 1px solid rgb(233, 0, 0);
 }
 
 .nav a {
@@ -39,9 +39,9 @@ body {
 
 }
 
-.nav-mens {
+.nav-mens,
+.nav-log {
     gap: 5px;
-
     display: flex;
     flex-direction: column;
 }
@@ -49,6 +49,10 @@ body {
 .nav a p {
     font-size: 25px;
     margin: 0;
+}
+
+.nav-logo a img {
+    height: 30px;
 }
 
 .login {
@@ -188,7 +192,7 @@ body {
 }
 
 .logout {
-    color: red !important;
+    color: rgb(108, 22, 22) !important;
 }
 
 .home {

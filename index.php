@@ -43,8 +43,8 @@
                         $result
                     )
                 ) {
-                    $uid = $row['uid'];
-                    $sql2 = "SELECT * FROM `user` WHERE `id` = $uid";
+                    $puid = $row['uid'];
+                    $sql2 = "SELECT * FROM `user` WHERE `id` = $puid";
                     $result2 = mysqli_query($conn, $sql2);
                     $row2 = mysqli_fetch_assoc($result2);
                     $timesplit = explode(":", $row['time']);
@@ -58,7 +58,7 @@
                             <p>' . $row['pdes'] . '</p>
                         </div>
                         <div class="rctail">
-                            <p>' . $timesplit[0] . $timestamp[1] . '</p>
+                            <p>' . $row['time'] . '</p>
                         </div>
                     </div>';
                 }
@@ -78,7 +78,7 @@
             $sql = "INSERT INTO `post` (`uid`,`ptit`, `pdes`, `time`) VALUES ($uid,'$title', '$desc', current_timestamp());";
             $result = mysqli_query($conn, $sql);
             if ($result) {
-                echo "Note Added";
+                echo "";
             } else {
                 echo "Note Not Added";
             }
