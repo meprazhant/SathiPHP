@@ -12,6 +12,7 @@
         </div>
         <?php
         $name = $_COOKIE["name"];
+
         if ($name) {
             require_once("./php/make.php");
         } else {
@@ -22,18 +23,18 @@
 
         <div class="nav-mens">
 
-            <a href="../index.php"> <i class="fas fa-home"></i> Home</a>
-            <a href="./index.php"><i class="fas fa-globe"></i>Explore</a>
-            <a href="./index.php"><i class="fas fa-envelope"></i>Message</a>
-            <a href="./index.php"><i class="fas fa-bell"></i>Notification</a>
-            <a href="./index.php"><i class="fas fa-wrench"></i>Settings</a>
+            <a href="../index.php"> <i class="fas fa-home"></i><span> Home</span></a>
+            <a href="./index.php"><i class="fas fa-globe"></i><span>Explore</span></a>
+            <a href="./index.php"><i class="fas fa-envelope"></i><span>Message</span></a>
+            <a href="./index.php"><i class="fas fa-bell"></i><span>Notification</span></a>
+            <a href="./index.php"><i class="fas fa-wrench"></i><span>Settings</span></a>
         </div>
         <div class="nav-log">
             <?php
             if (isset($_COOKIE['name'])) {
-                echo '<a href="./php/logout.php"><i class="fas fa-external-link-alt"></i>logout</a>';
+                echo '<a href="./php/logout.php"><i class="fas fa-external-link-alt"></i><span>logout</span></a>';
             } else {
-                echo '<a href="./login"><i class="fas fa-sign-in"></i>Login</a>';
+                echo '<a href="./login"><i class="fas fa-user-circle"></i><span>Login</span></a>';
             }
 
             ?>

@@ -281,8 +281,18 @@ body {
     cursor: pointer;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 .recent {
-    padding: 10px;
+    width: 100%;
+}
+
+.recent h2 {
+    margin: 0;
+    font-size: 22px;
+    padding: 20px;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
 }
 
 .rescard {
@@ -302,8 +312,7 @@ body {
     margin: 0;
 }
 
-.rescard input,
-textarea {
+.rescard input {
     font-size: 12px;
     margin: 0;
     padding: 10px;
@@ -322,7 +331,7 @@ textarea {
 
 .recentposts {
     display: flex;
-    gap: 10px;
+    flex-direction: column;
     flex-wrap: wrap;
 }
 
@@ -330,4 +339,258 @@ textarea {
     background-color: rgb(42, 42, 42) !important;
     /* height: auto !important; */
     padding: 10px;
+}
+
+.poststatus {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    width: 100%;
+    border-top: 1px solid rgba(255, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(255, 0, 0, 0.5);
+}
+
+.poststatus textarea {
+    resize: none;
+    font-size: 16px;
+    margin: 0;
+    padding: 10px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0);
+    width: 90%;
+    border: 0;
+    color: white;
+}
+
+.poststatus textarea:focus {
+    background-color: rgba(255, 255, 255, 0.019);
+}
+
+.poststatus textarea::placeholder {
+    color: rgb(212, 212, 212);
+}
+
+.post-img {
+    padding-left: 20px;
+    display: flex;
+    gap: 10px;
+    padding-left: 20px;
+}
+
+.post-con {
+    width: calc(100% - 80px);
+}
+
+.post-conn,
+.posthee {
+    width: calc(100% - 80px);
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.posthee {
+    flex-direction: column;
+}
+
+.postcontent p {
+    margin: 0;
+    font-size: 22px;
+}
+
+.post-conn p {
+    margin: 0;
+    font-size: 12px;
+    color: rgb(148, 148, 148);
+}
+
+.post-conn a {
+    text-decoration: none;
+    color: white;
+}
+
+.post-btn {
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 1px solid rgba(255, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 0;
+}
+
+.pp-change {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.523);
+    transition: ease-in-out .5s;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#binary {
+    opacity: 0.2;
+}
+
+.pp-card {
+    height: 320px;
+    width: 320px;
+    border-radius: 10px;
+    background-color: rgb(0, 0, 0);
+    padding: 10px;
+}
+
+.pp-card-close {
+    font-size: 22px;
+    text-align: right;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    cursor: pointer;
+}
+
+.pp-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.pp-card-body form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pp-card-close p {
+    margin: 0;
+}
+
+.post-btn a {
+    color: rgba(255, 0, 0, 0.778);
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 600;
+    cursor: pointer;
+    display: none;
+    transition: ease-in-out .5s;
+}
+
+.post-btn input {
+    text-decoration: none;
+    font-size: 18px;
+    padding: 6px 12px;
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+    background-color: rgb(80, 80, 239);
+    border-radius: 50px;
+    transition: ease-in-out .5s;
+}
+
+.post-btn button:disabled {
+    background-color: rgb(131, 131, 218);
+    color: #fff;
+    cursor: not-allowed;
+}
+
+.post-btn button:hover {
+    background-color: rgb(95, 95, 200);
+    color: #fff;
+}
+
+#limit {
+    margin: 0;
+    font-size: 12px;
+    color: #b5b5b5;
+}
+
+.post-img img {
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width:660px) {
+    .nav-logo a img {
+        width: 50px;
+    }
+
+    .nav-prof {
+        flex-direction: row;
+        gap: 5px;
+        justify-content: start;
+        margin: 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.313);
+    }
+
+    .pp-count {
+        display: none;
+    }
+
+    .nav-mens a,
+    .nav-log a {
+        justify-content: center;
+    }
+
+    .prof-img {
+        width: auto;
+        padding: 5px;
+    }
+
+    .nav-log a span {
+        display: none;
+    }
+
+    .prof-img img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .pp-count-item {
+        border-right: 0;
+        padding-right: 0;
+    }
+
+    .loggedIn {
+        font-size: 16px;
+        display: none;
+
+    }
+
+    .nav-mens a span {
+        display: none;
+    }
+
+    .logcard {
+        min-width: 320px;
+    }
+
+    .login {
+        width: 100%;
+    }
 }
