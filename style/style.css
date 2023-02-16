@@ -12,11 +12,10 @@ body {
     background-color: #292a35;
     display: flex;
     box-sizing: border-box;
+    position: sticky;
     gap: 20px;
     flex-direction: column;
     padding: 10px;
-    height: 100vh;
-    border-right: 1px solid rgb(233, 0, 0);
 }
 
 .nav a {
@@ -269,8 +268,10 @@ body {
 }
 
 .navclass {
-    height: 100%;
-    background-color: #fff;
+    /* height: 100%; */
+    background-color: #292a35;
+    position: relative;
+    border-right: 1px solid red;
 }
 
 .men-post {
@@ -283,9 +284,7 @@ body {
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-.recent {
-    width: 100%;
-}
+
 
 .recent h2 {
     margin: 0;
@@ -483,8 +482,33 @@ body {
     font-size: 22px;
     font-weight: 600;
     cursor: pointer;
-    display: none;
+    /* display: none; */
     transition: ease-in-out .5s;
+}
+
+.post-btn button {
+    padding: 10px;
+    border: 0;
+    outline: 0;
+
+}
+
+#picfile {
+    display: none;
+}
+
+.imageShow {
+    height: 120px;
+    display: none;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.imageShow img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
 }
 
 .post-btn input {
@@ -516,7 +540,7 @@ body {
     color: #b5b5b5;
 }
 
-.post-img img {
+.postinm img {
     height: 60px;
     width: 60px;
     object-fit: cover;

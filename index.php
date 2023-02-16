@@ -23,6 +23,7 @@
                 require_once("./php/postStatus.php");
             }
             ?>
+            <h2>Recent Posts</h2>
             <?php require_once("./php/recent.php") ?>
         </div>
 

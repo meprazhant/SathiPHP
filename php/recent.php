@@ -22,7 +22,7 @@
         //date format in php
         $date = date("d M Y", strtotime($date));
         //time format
-        $time = date("h:i A", strtotime($date));
+        $time = date("h:i A", strtotime($row['time']));
 
         $newdate = $date . " at " . $time;
 
@@ -30,7 +30,7 @@
 
 
         if (str_contains($pp, "http")) {
-            $pp = $pp;
+            // $pp;
         } else {
             $pp = "./render/" . $pp;
         }

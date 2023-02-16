@@ -10,7 +10,6 @@
     <form class="poststatus" method="POST" enctype="multipart/form-data">
         <div class="post-img">
             <div class="postinm">
-
                 <img src=<?php
                 $id = $_COOKIE['id'];
                 require_once('conn.php');
@@ -22,8 +21,8 @@
                 } else {
                     echo "./render/" . $row['pp'];
                 }
-                ?>
-                    alt="logo">
+                ?> 
+                alt="logo">
             </div>
             <div class="post-con">
                 <textarea name="desc" oninput="auto_grow(this)" id="desc"
@@ -31,20 +30,40 @@
                 <p id="limit">( 1500 out of 1500 Letters Remaining)</p>
 
                 <div class="post-btn">
-                    <a><i class="far fa-image"></i><input type="file" name="image" /> </a>
+                    <a onclick="addPic();">Add +</a>
+                    <input type="file" name="file" accept='.jpg, .jpeg, .png' id="picfile" onchange="displayIMG(event);">
                     <input type="submit" disabled id='sub' value="Post" name="submit" />
+                </div>
+                <div class="imageShow" id='imgShow'>
+                    <img ondblclick="openImg(event);" src="" id="imageID" alt="">
                 </div>
             </div>
         </div>
 
         <?php
         $hey = $_POST['submit'];
+
         if ($hey) {
+
             $desc = $_POST['desc'];
             $id = $_COOKIE['id'];
             require_once('conn.php');
-            $sql = "INSERT INTO `post`( `uid`, `pdes`, `time`) VALUES ($id,'$desc',current_timestamp())";
-            $result = mysqli_query($conn, $sql);
+            if ($_FILES['file']) {
+                $fileName = $_FILES['file']['name'];
+                $fileSize = $_FILES['file']['size'];
+                $fileTmp = $_FILES['file']['tmp_name'];
+                $validExt = array('jpg', 'jpeg', 'png');
+                $fileExt = explode('.', $fileName);
+                $imgext = strtolower(end($fileExt));
+                $newimgname = uniqid('', true) . "." . $imgext;
+                    move_uploaded_file($fileTmp, "./postImages/" . $newimgname);
+                    $go = $newimgname;
+                    $sql = "INSERT INTO `post`( `uid`, `pdes`, `time`,`image`) VALUES ($id,'$desc',current_timestamp(),$newimgname)";
+                    $result = mysqli_query($conn, $sql);
+            } else {
+                $sql = "INSERT INTO `post`( `uid`, `pdes`, `time`,`image`) VALUES ($id,'$desc',current_timestamp(),null)";
+                $result = mysqli_query($conn, $sql);
+            }
             if ($result) {
                 // refresh the page with timeout
                 header("Refresh:1000");
@@ -103,6 +122,33 @@
             alert("Please select a file");
             return;
         }
+    }
+
+    function addPic(e) {
+        var picfile = document.getElementById("picfile");
+        picfile.click();
+        console.log(e)
+    }
+
+    function displayIMG(e) {
+        var imgShow = document.getElementById("imgShow");
+        var files = (e.target.files)
+        var imageID = document.getElementById("imageID")
+        if (!files || files.length == 0)
+            return;
+        const file = files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            imageID.src = reader.result;
+            imgShow.style.display = "flex";
+        };
+    }
+    function openImg(e) {
+        console.log(e.target.src)
+        setTimeout(() => {
+            window.open(e.target.src, "_blank");
+        }, 1000);
     }
     console.log("Loaded")
 
