@@ -7,3 +7,4 @@ SathiPHP is a project that I am developing in order to learn **PHP** and **mySQL
 > And Many More
 
 ### This is not any official webapp but just me learning how PHP works.
+# QuickDocs
